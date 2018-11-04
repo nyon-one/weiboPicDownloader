@@ -254,6 +254,8 @@ for i, user in enumerate(users, 1):
     print_fit("{} {}".format(nickname, uid))
     
     urls = get_resources(uid, args.video)
+    with open('{}.json'.format(uid), 'w', encoding='utf-8') as w:
+        json.dump(urls, w)
 
     user_album = os.path.join(saving_path, nickname)
     if urls and not os.path.exists(user_album):
